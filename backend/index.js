@@ -3,9 +3,12 @@ import cors from "cors";
 import bodyParser from "body-parser"
 import pg from "pg";
 import dotenv from 'dotenv';
+
+
 const app =  express();
 const port = 5000;
 dotenv.config();
+
 const connect = process.env;
 const db = new pg.Client({
     user: connect.DB_USER,
