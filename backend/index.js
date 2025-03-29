@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser"
 import pg from "pg";
 import dotenv from 'dotenv';
+import multer from "multer";
 
 
 const app =  express();
@@ -19,8 +20,11 @@ const db = new pg.Client({
 });
 db.connect();
 
+const storage = multer.memoryStorage();
+const upload = multer({storage});
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static("public"))
 
 app.get("/images", async (req, res) => {
     try {
@@ -52,8 +56,37 @@ app.get("/getdata", (req,res)=>{
         depart: "se"
     }
     res.send(data);
-})
-app.get("/")
+});
+
+app.post("/upload", upload.single("image"), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: "No file uploaded" });
+      }
+  
+      const { originalname, buffer } = req.file;
+      console.log(`Uploading file: ${originalname}`);
+  
+      const query = "INSERT INTO images (image_name, image_data) VALUES ($1, $2) RETURNING *";
+      const values = [originalname, buffer];
+  
+      const result = await db.query(query, values);
+      console.log("Database insert result:", result);
+  
+      res.status(200).json({
+        message: "Image uploaded successfully",
+        image: result.rows[0],
+      });
+    } catch (error) {
+      console.error("Error during file upload:", error);
+      res.status(500).json({
+        message: "Failed to upload image",
+        error: error.message,
+        stack: error.stack, 
+     });
+    }
+  });
+
 app.listen(port,()=>{
     console.log(`Sesrver is running on port ${port}`)
 });
