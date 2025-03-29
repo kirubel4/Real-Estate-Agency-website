@@ -1,4 +1,4 @@
-function Cards({data,images}) {
+function Cards({images}) {
     return (
         <div className="py-7 justify-between mt-10 grid gap-y-8 gap-x-8 md:grid-cols-2 xl:grid-cols-3">
             {images.map((item) => {
@@ -9,10 +9,10 @@ function Cards({data,images}) {
                                 <img src={item.image_url} className="h-48 w-full object-cover rounded-md" />
                             </div>
                             <div className="h-auto">
-                                <h2 className="text-gray-700">Type: <strong>{item.image_name}</strong></h2>
-                                <p className="text-gray-700">ADDRESS: <strong>{item.image_name}</strong></p>
-                                <p className="text-gray-700">STATUS: <strong>{item.image_name}</strong></p>
-                                <p className="text-gray-700">PRICE: <strong>{item.image_name}</strong></p>
+                                <h2 className="text-gray-700">Type: <strong>kirubel</strong></h2>
+                                <p className="text-gray-700">ADDRESS: <strong>addis ababa</strong></p>
+                                <p className="text-gray-700">STATUS: <strong>for sell</strong></p>
+                                <p className="text-gray-700">PRICE: <strong>29999999</strong></p>
                                 <div className="p-3">
                                     <button className="bg-[#654520] text-white px-4 py-2 text-sm rounded cursor-pointer hover:bg-[#654520] hover:text-lg active:scale-90 transition-transform duration-200">
                                         Details                        
