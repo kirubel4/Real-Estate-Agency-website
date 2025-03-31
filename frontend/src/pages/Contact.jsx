@@ -4,7 +4,7 @@ function Contact(){
     return(
         <div>
             <Nav />
-            <h1>aklsdfjlaskfjaksfjlaksjflaks</h1>
+            <h1>hello contact</h1>
         </div>
     )
 }
