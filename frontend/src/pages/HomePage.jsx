@@ -12,6 +12,7 @@ import Properties from "../pages/properties";
 import Service from "../pages/service";
 import Contact from "../pages/contact"
 import {Routes, Route } from "react-router-dom";
+import DarkModeToggle from "../componets/DarkMode";
 
 function HomePage(){
   const[data, setData] = useState({});
@@ -60,12 +61,7 @@ function HomePage(){
         <Footer />
 
         {/* Dark mode toggle button */}
-        <div className="fixed bottom-4 right-4 bg-gray-200 rounded-full hover:scale-105 active:scale-75">
-          <button onClick={toggleDarkMode} className="shadow-lg bg-black px-4 py-3 rounded-full text-white dark:bg-white dark:text-black active:bg-106">
-            <BiSun className="hidden dark:block" />
-            <BiMoon className="dark:hidden" />
-          </button>
-        </div>
+        <DarkModeToggle />
     </div>
     
   )

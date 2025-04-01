@@ -1,10 +1,15 @@
 import React from "react";
 import Nav from "../componets/Nav";
+import Footer from "../componets/Footer";
+import DarkModeToggle from "../componets/DarkMode";
+import Contacts from "../componets/Contacts";
 function Contact(){
     return(
-        <div>
-            <Nav />
-            <h1>hello contact</h1>
+        <div className="h-screen w-full">
+            {/* <Nav /> */}
+            <Contacts />
+            {/* <Footer /> */}
+            
         </div>
     )
 }
