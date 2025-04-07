@@ -22,6 +22,7 @@ db.connect();
 
 const storage = multer.memoryStorage();
 const upload = multer({storage});
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"))
@@ -84,6 +85,51 @@ app.post("/upload", upload.single("image"), async (req, res) => {
         error: error.message,
         stack: error.stack, 
      });
+    }
+  });
+
+  app.post('/houses', upload.array('photos'), async (req, res) => {
+    const { title, location, price, description } = req.body;
+    const files = req.files;
+  
+    try {
+      const result = await db.query(
+        `INSERT INTO houses (title, location, price, description)
+         VALUES ($1, $2, $3, $4) RETURNING id`,
+        [title, location, price, description]
+      );
+  
+      const houseId = result.rows[0].id;
+  
+      for (const file of files) {
+        await db.query(
+          `INSERT INTO photos (house_id, photo) VALUES ($1, $2)`,
+          [houseId, file.buffer]
+        );
+      }
+  
+      res.status(201).json({ message: 'House and photos uploaded successfully' });
+    } catch (err) {
+      console.error('Error creating house:', err);
+      res.status(500).json({ error: 'Upload failed' });
+    }
+  });
+  
+  // Get all houses with their images as base64
+  app.get('/api/houses', async (req, res) => {
+    try {
+      const result = await db.query(`
+        SELECT h.*, 
+          json_agg(encode(p.photo, 'base64')) AS photos
+        FROM houses h
+        LEFT JOIN photos p ON h.id = p.house_id
+        GROUP BY h.id
+      `);
+  
+      res.json(result.rows);
+    } catch (err) {
+      console.error('Error fetching houses:', err);
+      res.status(500).json({ error: 'Failed to fetch houses' });
     }
   });
 
