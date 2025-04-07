@@ -4,8 +4,6 @@ import Landing from "../componets/Landing";
 import NewHouse from "../componets/NewHouses";
 import Footer from "../componets/Footer";
 import {useState, useEffect} from "react";
-import { BiMoon } from "react-icons/bi"; 
-import { BiSun } from "react-icons/bi"; 
 import Axios from "axios";
 import About from "../pages/about";
 import Properties from "../pages/properties";
@@ -32,35 +30,13 @@ function HomePage(){
   useEffect(()=>{
     getData();
   },[]);
-
-
-  useEffect(()=>{
-      const isDarkMode = localStorage.getItem("isDarkMode")
-      if(isDarkMode === "true"){
-        window.document.documentElement.classList.add("dark")
-      }
-    },[])
-  const toggleDarkMode = () => {
-    const isDark = window.document.documentElement.classList.toggle("dark");
-    localStorage.setItem("isDarkMode", isDark);
-    
-  };
   return(
     <div className=" dark:bg-black">
       
         <Nav />
-        <Routes>
-          <Route path="/properties" element={<Properties />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-
         <Landing />
         <NewHouse images={images} data={data} />
         <Footer />
-
-        {/* Dark mode toggle button */}
         <DarkModeToggle />
     </div>
     

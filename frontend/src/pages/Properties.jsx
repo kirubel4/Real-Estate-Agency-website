@@ -1,7 +1,17 @@
 import React from "react";
+import Nav from "../componets/Nav";
+import Footer from "../componets/Footer";
+import DarkModeToggle from "../componets/DarkMode";
+import Property from "../componets/Property.jsx";
 function Properties(){
     return(
-        <h1>hello Properties</h1>
+        <>
+            <Nav />
+            <Property />
+            <Footer />
+            <DarkModeToggle />
+        </>
+        
     )
 }
 export default Properties;

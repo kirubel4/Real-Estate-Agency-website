@@ -9,6 +9,7 @@ function Contact(){
             {/* <Nav /> */}
             <Contacts />
             {/* <Footer /> */}
+            <DarkModeToggle />
             
         </div>
     )
