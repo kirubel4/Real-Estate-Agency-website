@@ -6,7 +6,7 @@ function Cards({images}) {
                     <div key={item.id} className="block bg-[#d8c4b6] h-auto w-80 rounded-lg shadow-lg cursor-pointer hover:scale-105 transform transition-opacity">
                         <div className="block p-2 rounded-lg ">
                             <div className="flex justify-center mb-1">
-                                <img src={item.image_url} className="h-48 w-full object-cover rounded-md" />
+                                <img src={`data:image/jpeg;base64,${item.photos[0]}`} className="h-48 w-full object-cover rounded-md" />
                             </div>
                             <div className="h-auto">
                                 <h2 className="text-gray-700">Type: <strong>kirubel</strong></h2>
