@@ -127,6 +127,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
       `);
   
       res.json(result.rows);
+      console.log(result.rows)
     } catch (err) {
       console.error('Error fetching houses:', err);
       res.status(500).json({ error: 'Failed to fetch houses' });
