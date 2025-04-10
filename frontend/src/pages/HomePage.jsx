@@ -13,29 +13,21 @@ import {Routes, Route } from "react-router-dom";
 import DarkModeToggle from "../componets/DarkMode";
 
 function HomePage(){
-  const[data, setData] = useState({});
-  const [images, setImages] = useState([]);
-
-    useEffect(() => {
-        fetch("http://localhost:5000/images")
-            .then(response => response.json())
-            .then(data => setImages(data))
-            .catch(error => console.error("Error fetching images:", error));
-    }, []);
-  const getData = async()=>{
-      const response = await Axios.get("http://localhost:5000/getdata");
-      setData(response.data);
-  }
-
-  useEffect(()=>{
-    getData();
-  },[]);
+  const [image, setImage] = useState([]);
+      const [info, setInfo] = useState({})
+      
+      useEffect(()=>{
+          fetch("http://localhost:5000/api/houses")
+          .then(response => response.json())
+          .then(data => setImage(data))
+          .catch(error => console.error("Error fetching images:", error))
+      },[])
   return(
     <div className=" dark:bg-black">
       
         <Nav />
         <Landing />
-        <NewHouse images={images} data={data} />
+        <NewHouse images={image} />
         <Footer />
         <DarkModeToggle />
     </div>

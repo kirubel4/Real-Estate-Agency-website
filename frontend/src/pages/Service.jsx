@@ -1,7 +1,16 @@
 import React from "react";
+import Nav from "../componets/Nav";
+import Footer from "../componets/Footer";
+import DarkModeToggle from "../componets/DarkMode";
 function Service(){
     return(
-        <h1>hello service this is ayele real estate</h1>
+        <>
+        <Nav />
+        <Footer/>
+        <DarkModeToggle />
+        </>
+        
+
     )
 }
 export default Service;

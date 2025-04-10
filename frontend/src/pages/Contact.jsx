@@ -5,10 +5,10 @@ import DarkModeToggle from "../componets/DarkMode";
 import Contacts from "../componets/Contacts";
 function Contact(){
     return(
-        <div className="h-screen w-full">
-            {/* <Nav /> */}
+        <div className="h-auto w-full  dark:bg-black">
+            <Nav />
             <Contacts />
-            {/* <Footer /> */}
+            <Footer />
             <DarkModeToggle />
             
         </div>

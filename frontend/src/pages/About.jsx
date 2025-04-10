@@ -1,9 +1,15 @@
 import React from "react";
+import Nav from "../componets/Nav";
+import Footer from "../componets/Footer";
+import DarkModeToggle from "../componets/DarkMode";
+import AboutElement from "../componets/About";
 function About(){
     return(
         <div>
-            <h1 className="" >Ayele real estate</h1>
-            <h1 className="dark:text-white">what a nice thing to know about your self</h1>
+            <Nav />
+            <AboutElement />
+            <Footer />
+            <DarkModeToggle />
         </div>
         
     )
