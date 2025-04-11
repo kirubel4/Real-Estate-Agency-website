@@ -4,4 +4,5 @@ Done by this technologys:
   frontend by react tailwind
   backend by express node js
   database postgres
+simple and have night and light option toggle
 
