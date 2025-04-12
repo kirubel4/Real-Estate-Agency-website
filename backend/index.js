@@ -125,9 +125,8 @@ app.post("/upload", upload.single("image"), async (req, res) => {
         LEFT JOIN photos p ON h.id = p.house_id
         GROUP BY h.id
       `);
-  
+
       res.json(result.rows);
-      console.log(result.rows)
     } catch (err) {
       console.error('Error fetching houses:', err);
       res.status(500).json({ error: 'Failed to fetch houses' });
