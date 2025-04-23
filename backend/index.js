@@ -122,6 +122,37 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     }
   });
 
+ // Get one house by ID with all its photos (base64)
+app.get('/items/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const houseResult = await db.query(
+      `SELECT * FROM houses WHERE id = $1`,
+      [id]
+    );
+
+    if (houseResult.rows.length === 0) {
+      return res.status(404).json({ error: 'House not found' });
+    }
+
+    const house = houseResult.rows[0];
+
+    const photoResult = await db.query(
+      `SELECT encode(photo, 'base64') AS photo FROM photos WHERE house_id = $1`,
+      [id]
+    );
+
+    house.photos = photoResult.rows.map(row => row.photo);
+
+    res.json(house);
+  } catch (err) {
+    console.error('Error fetching house by ID:', err);
+    res.status(500).json({ error: 'Failed to fetch house' });
+  }
+});
+
+
 app.listen(port,()=>{
     console.log(`Sesrver is running on port ${port}`)
 });
