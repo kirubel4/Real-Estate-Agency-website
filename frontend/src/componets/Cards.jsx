@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 function Cards({images}) {
     return (
         <div className="py-7 justify-between mt-10 grid gap-y-8 gap-x-8 md:grid-cols-2 xl:grid-cols-3">
@@ -14,9 +15,12 @@ function Cards({images}) {
                                 <p className="text-gray-700">STATUS: <strong>for sell</strong></p>
                                 <p className="text-gray-700">PRICE: <strong>29999999</strong></p>
                                 <div className="p-3">
-                                    <button className="bg-[#654520] text-white px-4 py-2 text-sm rounded cursor-pointer hover:bg-[#654520] hover:text-lg active:scale-90 transition-transform duration-200">
-                                        Details                        
-                                    </button>
+                                    <Link to={`/detail/${item.id}`}>
+                                        <button className="bg-[#654520] text-white px-4 py-2 text-sm rounded cursor-pointer hover:bg-[#654520] hover:text-lg active:scale-90 transition-transform duration-200">
+                                            Details                        
+                                        </button>
+                                    </Link>
+                                    
                                 </div>
                             </div>
                         </div>
