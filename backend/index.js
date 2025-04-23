@@ -48,17 +48,6 @@ app.get("/images", async (req, res) => {
     }
 });
 
-
-app.get("/getdata", (req,res)=>{
-
-    const data = {
-        name:"kirubel",
-        price:20000000,
-        depart: "se"
-    }
-    res.send(data);
-});
-
 app.post("/upload", upload.single("image"), async (req, res) => {
     try {
       if (!req.file) {
