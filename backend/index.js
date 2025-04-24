@@ -78,14 +78,14 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   });
 
   app.post('/houses', upload.array('photos'), async (req, res) => {
-    const { title, location, price, description } = req.body;
+    const { title, location, price, description,type,status } = req.body;
     const files = req.files;
   
     try {
       const result = await db.query(
-        `INSERT INTO houses (title, location, price, description)
-         VALUES ($1, $2, $3, $4) RETURNING id`,
-        [title, location, price, description]
+        `INSERT INTO houses (title, location, price, description,type,status)
+         VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
+        [title, location, price, description,type,status]
       );
   
       const houseId = result.rows[0].id;
@@ -123,7 +123,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   });
 
  // Get one house by ID with all its photos (base64)
-app.get('/items/:id', async (req, res) => {
+ app.get('/detail/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -151,7 +151,6 @@ app.get('/items/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch house' });
   }
 });
-
 
 app.listen(port,()=>{
     console.log(`Sesrver is running on port ${port}`)
