@@ -4,6 +4,8 @@ import Service from "./pages/service";
 import Contact from "./pages/contact"
 import {Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homepage";
+import ItemDetail from "./componets/ItemDetail";
+import Lists from "./componets/Lists";
 function App(){
   // const[data, setData] = useState({});
   // const [images, setImages] = useState([]);
@@ -30,6 +32,8 @@ function App(){
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/detail/:id" element={<ItemDetail />} />
+          <Route path="/Admin09" element={<Lists />} />
         </Routes>
     </div>
     
