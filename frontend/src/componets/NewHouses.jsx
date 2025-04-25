@@ -7,7 +7,7 @@ function NewHouse({data,images}){
             <div className="flex py-3">
                 <h1 className="text-6xl underline text-bold text-transparent bg-clip-text bg-gradient-to-br from-[#F637CF] via-[#E3D876] to-[#4DD4C6]">New Arrivals</h1>
             </div>
-            <Cards className="mb-5" images={images}/>
+            <Cards className="mb-5" images={images} max_item={2}/>
             <div className="lg:flex sm:block">
                 <div className="lg:flex-1">
                     <BrokerPerformanceChart />
