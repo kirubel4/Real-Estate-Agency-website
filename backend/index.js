@@ -4,6 +4,8 @@ import bodyParser from "body-parser"
 import pg from "pg";
 import dotenv from 'dotenv';
 import multer from "multer";
+import path from "path";
+import { fileURLToPath } from "url";
 
 
 const app =  express();
@@ -47,6 +49,8 @@ app.get("/images", async (req, res) => {
         res.status(500).json({ error: "Server error" });
     }
 });
+
+
 
 app.post("/upload", upload.single("image"), async (req, res) => {
     try {
@@ -150,6 +154,16 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     console.error('Error fetching house by ID:', err);
     res.status(500).json({ error: 'Failed to fetch house' });
   }
+});
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// ✅ Catch-all route: for React Router to handle client-side routes like /detail/:id
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
 app.listen(port,()=>{
