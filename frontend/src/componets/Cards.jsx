@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-function Cards({images}) {
+function Cards({images,max_item}) {
+    const cardsToShow = images.slice(0, max_item);
     return (
         <div className="py-7 justify-between mt-10 grid gap-y-8 gap-x-8 md:grid-cols-2 xl:grid-cols-3">
-            {images.map((item) => {
+            {cardsToShow.map((item) => {
                 return ( 
                     <div key={item.id} className="block bg-[#d8c4b6] h-auto w-80 rounded-lg shadow-lg cursor-pointer hover:scale-105 transform transition-opacity">
                         <div className="block p-2 rounded-lg ">
