@@ -6,10 +6,11 @@ import dotenv from 'dotenv';
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
+import nodemailer from 'nodemailer';
 
 
 const app =  express();
-const port = 5000;
+const port = process.env.port || 5000;
 dotenv.config();
 
 const connect = process.env;
@@ -28,6 +29,44 @@ const upload = multer({storage});
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"))
+
+
+app.post('/send-email', async (req, res) => {
+  const { name, email, phone, message } = req.body;
+
+  try {
+    // Create reusable transporter object
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER, // your Gmail address
+        pass: process.env.EMAIL_PASS, // app password, not real password
+      },
+    });
+
+    // Email content
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_RECEIVER, // your email (can be same as user)
+      subject: 'New Contact Form Message',
+      html: `
+        <h3>New Message from Website Contact Form</h3>
+        <p><strong>Full Name:</strong> ${name}</p>
+        <p><strong>Email Address:</strong> ${email}</p>
+        <p><strong>Phone Number:</strong> ${phone}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
+    };
+
+    // Send email
+    await transporter.sendMail(mailOptions);
+
+    res.status(200).json({ message: 'Email sent successfully!' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Failed to send email' });
+  }
+});
 
 app.get("/images", async (req, res) => {
     try {
