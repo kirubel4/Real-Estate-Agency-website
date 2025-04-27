@@ -15,12 +15,12 @@ const BrokerPerformanceChart = () => {
 
     const drawChart = () => {
       const data = window.google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses', 'Profit'],
-        ['2019', 1500, 600, 300],
-        ['2020', 2000, 800, 400],
-        ['2021', 2300, 1000, 500],
-        ['2022', 2500, 900, 600],
-        ['2023', 3000, 1200, 800]
+        ['Year', 'Sales (in Birr)', 'Expenses (in Birr)', 'Profit (in Birr)'],
+        ['2021', 5000000, 2000000, 1000000],
+        ['2022', 6000000, 2500000, 1200000],
+        ['2023', 7500000, 3000000, 1500000],
+        ['2024', 8500000, 3500000, 1800000],
+        ['2025', 10000000, 4000000, 2200000]
       ]);
 
       // Check if dark mode is enabled
@@ -29,8 +29,8 @@ const BrokerPerformanceChart = () => {
       // Set chart options based on dark mode
       const options = {
         chart: {
-          title: 'Ayele Agency Performance',
-          subtitle: 'Sales, Expenses, and Profit: 2019-2023',
+          title: 'Ayele Agency Performance average',
+          subtitle: 'Sales, Expenses, and Profit: 2021-2025',
         },
         bars: 'vertical', // Keep bars vertical
         height: 300, // Chart height

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import {useState,useEffect} from "react";
 function Cards({images,max_item}) {
     const cardsToShow = images.slice(0, max_item);
     return (
@@ -11,10 +12,10 @@ function Cards({images,max_item}) {
                                 <img src={`data:image/jpeg;base64,${item.photos[0]}`} className="h-48 w-full object-cover rounded-md" />
                             </div>
                             <div className="h-auto">
-                                <h2 className="text-gray-700">Type: <strong>kirubel</strong></h2>
-                                <p className="text-gray-700">ADDRESS: <strong>addis ababa</strong></p>
-                                <p className="text-gray-700">STATUS: <strong>for sell</strong></p>
-                                <p className="text-gray-700">PRICE: <strong>29999999</strong></p>
+                                <h2 className="text-gray-700">Type: <strong>{item.type}</strong></h2>
+                                <p className="text-gray-700">ADDRESS: <strong>{item.location}</strong></p>
+                                <p className="text-gray-700">STATUS: <strong>{item.status}</strong></p>
+                                <p className="text-gray-700">PRICE: <strong>{item.price}</strong></p>
                                 <div className="p-3">
                                     <Link to={`/detail/${item.id}`}>
                                         <button className="bg-[#654520] text-white px-4 py-2 text-sm rounded cursor-pointer hover:bg-[#654520] hover:text-lg active:scale-90 transition-transform duration-200">
