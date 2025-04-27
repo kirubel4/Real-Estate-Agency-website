@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { IoIosArrowBack } from "react-icons/io"; 
+import { useNavigate } from "react-router-dom";
 
 function Lists(){
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: '',
     location: '',
@@ -50,6 +53,12 @@ function Lists(){
   };
 
   return (
+    <>
+    <div className="rounded cursor-pointer" onClick={()=>{navigate(-1)}}>
+          <IoIosArrowBack size={35} className="bg-slate-300 rounded-full hover:scale-90"/>
+    </div>
+
+
     <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto space-y-4">
       <input
         type="text"
@@ -114,6 +123,7 @@ function Lists(){
         Submit
       </button>
     </form>
+    </>
   );
 };
 
