@@ -13,7 +13,9 @@ function NewHouse({data,images}){
                     <BrokerPerformanceChart />
                     </div>
                     <div className="lg:flex-1">
-                        <p className="justify-cente py-20 w-auto ml-4 align-center h-auto dark:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia earum fugiat, nihil quas obcaecati qui. Necessitatibus aliquid, illum sed dolores tempora, porro, nisi minima neque debitis dolorum alias explicabo amet.</p>
+                        <p className="justify-cente py-20 w-auto ml-4 align-center h-auto dark:text-white">Ayele Agency is a growing real estate company committed to connecting clients with their ideal homes and investment properties. Through strategic marketing, 
+                            professional brokerage services, and personalized customer support, Ayele Agency has steadily increased its profits year after year. The agency specializes in property sales, rentals, and advisory services, while actively expanding its portfolio of 
+                            high-value listings across Addis Ababa and beyond. With a focus on trust, transparency, and excellent service, Ayele Agency continues to build strong relationships with buyers, sellers, and investors, ensuring sustainable growth and a positive reputation in the real estate market.</p>
                     </div>
                 
             </div>
