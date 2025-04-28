@@ -124,7 +124,7 @@ function Contacts(){
               <p className="ml-12 font-bold dark:text-white">Addis Ababa,Bole,yerer</p>
               <iframe
                   className="mt-6 mb-6 w-auto lg:w-1/2"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d522.7578497378614!2d38.818436225679804!3d8.99949793980383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b9acaf6238061%3A0xe842de7c974d0e43!2sGerji%2C%20Addis%20Ababa!5e1!3m2!1sen!2set!4v1744457119424!5m2!1sen!2set"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d415.19330956266305!2d38.818630897769395!3d8.999598166598995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2set!4v1745841925488!5m2!1sen!2set"
                   width="1/2"
                   height="300"
                   style={{ border: 0 }}
