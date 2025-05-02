@@ -39,8 +39,8 @@ app.post('/send-email', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER, // your Gmail address
-        pass: process.env.EMAIL_PASS, // app password, not real password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS, 
       },
     });
 
@@ -152,7 +152,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     try {
       const result = await db.query(`
         SELECT h.*, 
-          json_agg(encode(p.photo, 'base64')) AS photos
+        json_agg(encode(p.photo, 'base64')) AS photos
         FROM houses h
         LEFT JOIN photos p ON h.id = p.house_id
         GROUP BY h.id
