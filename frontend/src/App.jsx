@@ -1,29 +1,12 @@
-import About from "./pages/about";
+import About from "./pages/About";
 import Properties from "./pages/properties";
-import Service from "./pages/service";
+import Service from "./pages/Service";
 import Contact from "./pages/contact"
 import {Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homepage";
 import ItemDetail from "./componets/ItemDetail";
 import Lists from "./componets/Lists";
 function App(){
-  // const[data, setData] = useState({});
-  // const [images, setImages] = useState([]);
-
-  //   useEffect(() => {
-  //       fetch("http://localhost:5000/images")
-  //           .then(response => response.json())
-  //           .then(data => setImages(data))
-  //           .catch(error => console.error("Error fetching images:", error));
-  //   }, []);
-  // const getData = async()=>{
-  //     const response = await Axios.get("http://localhost:5000/getdata");
-  //     setData(response.data);
-  // }
-
-  // useEffect(()=>{
-  //   getData();
-  // },[]);
   return(
     <div className="p-4 xl:px-12 animate-fadeIn dark:bg-black">
         <Routes>
