@@ -1,4 +1,7 @@
 **Ayele Real Estate Agency
+
+This is a website that customers can buy and sell there house.
+
 Done by this technologys:
   Full stack web 
   frontend by react tailwind
