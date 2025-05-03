@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import {useState,useEffect} from "react";
 function Cards({images,max_item}) {
     const cardsToShow = images.slice(0, max_item);
     return (
