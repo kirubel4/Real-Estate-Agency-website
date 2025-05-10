@@ -31,9 +31,9 @@ function Footer(){
                         <div className="space-x-14">
                             <h2 className="px-6 lg:text-2xl text-2lg text-transparent bg-clip-text bg-gradient-to-br from-[#F637CF] via-[#E3D876] to-[#4DD4C6]">Contact</h2>
                             <ul>
-                                <li className="dark:text-white py-2"><a href="kirubelayele2127@gmail.com"><AiOutlineMail size={25}/></a></li>
+                                <li className="dark:text-white py-2"><a href="mailto: kirubelayele2127@gmail.com"><AiOutlineMail size={25}/></a></li>
                                 <li className="dark:text-white py-2"><a href="https://www.linkedin.com/in/kirubel-ayele-b88a58263/"><BsLinkedin size={25}/></a></li>
-                                <li className="dark:text-white py-2"><a href="#"><AiOutlineInstagram size={25}/></a></li>
+                                <li className="dark:text-white py-2"><a href="https://t.me/kiraklaus"><AiOutlineInstagram size={25}/></a></li>
                                 <li className="dark:text-white py-2"><BiPhone size={25}/>+251-977-32-52-96</li>
                             </ul>
                         </div>
