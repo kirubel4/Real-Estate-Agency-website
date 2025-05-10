@@ -30,6 +30,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"))
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 app.post('/send-email', async (req, res) => {
   const { name, email, phone, message } = req.body;
@@ -196,9 +199,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
 });
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
 
 //Catch-all route: for React Router to handle client-side routes like /detail/:id
 app.get('*', (req, res) => {
