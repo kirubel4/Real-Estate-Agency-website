@@ -200,7 +200,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-// ✅ Catch-all route: for React Router to handle client-side routes like /detail/:id
+//Catch-all route: for React Router to handle client-side routes like /detail/:id
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
