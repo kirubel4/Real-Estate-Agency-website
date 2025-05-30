@@ -14,5 +14,6 @@ AYELE REAL ESTATE AGENCY:-
         can be contacted in person
         additional service is comming
         your dream come to reality
+        $$$$$$$$$$$$$$$$$$$$$$$$$$
         
 
