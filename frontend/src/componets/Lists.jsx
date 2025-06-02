@@ -36,7 +36,7 @@ function Lists(){
     }
 
     for (let i = 0; i < photos.length; i++) {
-      data.append('photos', photos[i]); // Must match the backend field name
+      data.append('photos', photos[i]);
     }
 
     try {
