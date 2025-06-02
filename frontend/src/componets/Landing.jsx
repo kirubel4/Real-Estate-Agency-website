@@ -34,9 +34,7 @@ function Landing(){
                     </p>
                 </div>
 
-            </div>
-            
-            
+            </div>  
         </div>
     )
 }
